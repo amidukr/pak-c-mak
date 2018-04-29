@@ -1,0 +1,1 @@
+export CMAKE_PREFIX_PATH=${BASH_SOURCE%/*}/cache

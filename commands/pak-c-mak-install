@@ -1,0 +1,11 @@
+#!/bin/bash
+
+if [ "$#" -ne 1 ]; then 
+	"$PAK_C_MAK_PATH/commands/pak-c-mak-help"
+	exit 1;
+fi
+
+PACKAGE=$1
+
+"$PAK_C_MAK_PATH/tools/execute-package-command" $PACKAGE pak-install
+exit 0;

@@ -1,0 +1,8 @@
+#!/bin/bash
+
+if [ "$#" -ne 0 ]; then 
+	"$PAK_C_MAK_PATH/commands/pak-c-mak-help"
+	exit 1;
+fi
+
+ls -1 "$PAK_C_MAK_PATH/packages/" | perl -wlne 'print $1 if /install-(.*)\.sh/'; 

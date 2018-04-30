@@ -1,3 +1,4 @@
+#!/bin/bash
 if [ "$#" -ne 3 ]; then 
    echo "git-cmake-install <project> <git-url> <git-branch>"; exit 1;
 fi
@@ -6,25 +7,5 @@ PROJECT=$1
 GIT_URL=$2
 GIT_BRANCH=$3
 
-source "$PAK_C_MAK_PATH/pak-c-mak-env"
-
-mkdir -p "$PAK_C_MAK_PATH/downloads"
-
-
-PROJECT_DOWNLOAD_DIR=$PAK_C_MAK_PATH/downloads/$PROJECT
-
-if [ ! -d "$PROJECT_DOWNLOAD_DIR" ]; then
-	git clone -b $GIT_BRANCH $GIT_URL "$PROJECT_DOWNLOAD_DIR"
-fi
-
-cd "$PROJECT_DOWNLOAD_DIR"
-git pull >> /dev/null
-
-mkdir -p "$PROJECT_DOWNLOAD_DIR/build"
-cd "$PROJECT_DOWNLOAD_DIR/build"
-rm -rf *
-
-cmake $CMAKE_ARGUMENTS -DCMAKE_INSTALL_PREFIX="$CMAKE_PREFIX_PATH" ..
-
-cmake --build . --target INSTALL
-cmake --build . --config Release --target INSTALL
+"$PAK_C_MAK_PATH/tools/download-git-clone" packages $PROJECT "$GIT_URL" master
+"$PAK_C_MAK_PATH/tools/cmake-install" $PROJECT

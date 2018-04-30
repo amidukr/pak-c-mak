@@ -1,0 +1,10 @@
+#!/bin/bash
+if [ "$#" -ne 2 ]; then 
+  echo "find-downloaded-content <content-type> <content-id>" >&2 ; exit 1;
+fi
+
+TYPE=$1
+NAME=$2
+
+echo $PAK_C_MAK_PATH/downloads/$TYPE/$NAME
+

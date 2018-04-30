@@ -1,0 +1,18 @@
+#!/bin/bash
+if [ "$#" -ne 4	 ]; then 
+   echo "git-download-clone <type> <name> <git-url> <git-branch>"; exit 1;
+fi
+
+TYPE=$1
+NAME=$2
+GIT_URL=$3
+GIT_BRANCH=$4
+
+PROJECT_DOWNLOAD_DIR=$("$PAK_C_MAK_PATH/tools/find-downloaded-content" $TYPE $NAME)
+
+if [ ! -d "$PROJECT_DOWNLOAD_DIR" ]; then
+	git clone -b $GIT_BRANCH "$GIT_URL" "$PROJECT_DOWNLOAD_DIR"
+fi
+
+cd "$PROJECT_DOWNLOAD_DIR"
+git pull >> /dev/null

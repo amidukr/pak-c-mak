@@ -11,8 +11,12 @@ GIT_BRANCH=$4
 PROJECT_DOWNLOAD_DIR=$("$PAK_C_MAK_PATH/tools/find-downloaded-content" $TYPE $NAME)
 
 if [ -d "$PROJECT_DOWNLOAD_DIR" ]; then
-	rm -rf "$PROJECT_DOWNLOAD_DIR"
+	#rm -rf "$PROJECT_DOWNLOAD_DIR"
+	cd "$PROJECT_DOWNLOAD_DIR"
+	git fetch origin $GIT_BRANCH
+	git checkout -B $GIT_BRANCH origin/$GIT_BRANCH
+else 
+	git clone --depth 1 -b $GIT_BRANCH "$GIT_URL" "$PROJECT_DOWNLOAD_DIR"
 fi
 
-git clone --depth 1 -b $GIT_BRANCH "$GIT_URL" "$PROJECT_DOWNLOAD_DIR"
 

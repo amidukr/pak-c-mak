@@ -11,9 +11,7 @@ PROJECT_DIR=$("$PAK_C_MAK_PATH/tools/find-downloaded-content" packages $PROJECT)
 
 mkdir -p "$PROJECT_DIR/build"
 cd "$PROJECT_DIR/build"
-rm -rf *
 
-cmake $CMAKE_ARGUMENTS -DCMAKE_INSTALL_PREFIX="$CMAKE_PREFIX_PATH" ..
-
-cmake --build . --target INSTALL
-cmake --build . --config Release --target INSTALL
+cmake $CMAKE_ARGUMENTS -DCMAKE_INSTALL_PREFIX="$CMAKE_PREFIX_PATH" .. && \
+cmake --build . --target install && \
+cmake --build . --config Release --target install

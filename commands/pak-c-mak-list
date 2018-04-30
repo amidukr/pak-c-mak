@@ -5,4 +5,15 @@ if [ "$#" -ne 0 ]; then
 	exit 1;
 fi
 
-ls -1 "$PAK_C_MAK_PATH/packages/" | perl -wlne 'print $1 if /install-(.*)\.sh/'; 
+PACKAGES_DIR=$PAK_C_MAK_PATH/packages/
+
+if [ -d "$PROJECT_DOWNLOAD_DIR" ]; then
+	ls -1 "$PACKAGES_DIR" | perl -wlne 'print $1 if /install-(.*)\.sh/'; 
+else
+	echo "No repository installed, "
+	echo "   please use command pak-c-mak add-repo ..."
+	echo "    to install repo with packages"
+	echo "    pak-c-mak help - for more details"
+fi
+
+

@@ -4,6 +4,7 @@ export PAK_C_MAK_PATH=$(realpath "$(dirname "$BASH_SOURCE")")
 
 function print_help {
    echo "pak-c-mak <command> ..."; 
+   echo "  pak-c-mak add-repo <git-url> - download packages meta db";
    echo "  pak-c-mak list - enumarate list of available packages";
    echo "  pak-c-mak install <package-name> - installs packages";
    exit 1;

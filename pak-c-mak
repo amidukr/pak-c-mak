@@ -9,7 +9,7 @@ fi
 COMMAND=$1
 PACKAGE=$2
 
-export CMAKE_VC_INSTALL_UTILS=$(realpath "$(dirname "$BASH_SOURCE")")
+PAK_C_MAK_PATH=$(realpath "$(dirname "$BASH_SOURCE")")
 
 if [ "$COMMAND" = "list" ]; then
   ls -1 "$CMAKE_VC_INSTALL_UTILS/packages/" | perl -wlne 'print $1 if /install-(.*)\.sh/'; 

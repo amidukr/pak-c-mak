@@ -6,14 +6,12 @@ PROJECT=$1
 GIT_URL=$2
 GIT_BRANCH=$3
 
+source "$PAK_C_MAK_PATH/set-cmake-repo-env.sh"
 
-CMAKE_VC_INSTALL_UTILS=$(realpath "$(dirname "$BASH_SOURCE")")
-source "$CMAKE_VC_INSTALL_UTILS/set-cmake-repo-env.sh"
-
-mkdir -p "$CMAKE_VC_INSTALL_UTILS/downloads"
+mkdir -p "$PAK_C_MAK_PATH/downloads"
 
 
-PROJECT_DOWNLOAD_DIR=$CMAKE_VC_INSTALL_UTILS/downloads/$PROJECT
+PROJECT_DOWNLOAD_DIR=$PAK_C_MAK_PATH/downloads/$PROJECT
 
 git clone -b $GIT_BRANCH $GIT_URL "$PROJECT_DOWNLOAD_DIR"
 cd "$PROJECT_DOWNLOAD_DIR"

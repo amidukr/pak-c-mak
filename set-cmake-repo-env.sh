@@ -1,2 +1,0 @@
-CMAKE_VC_INSTALL_UTILS=$(realpath "$(dirname "$BASH_SOURCE")")
-export CMAKE_PREFIX_PATH=$CMAKE_VC_INSTALL_UTILS/cache

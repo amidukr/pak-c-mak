@@ -1,0 +1,2 @@
+PAK_C_MAK_PATH=$(realpath "$(dirname "$BASH_SOURCE")")
+export CMAKE_PREFIX_PATH=$PAK_C_MAK_PATH/cache

@@ -1,22 +1,30 @@
-if [ "$#" -ne 1 ] && [ "$#" -ne 2 ]; then 
-   echo "package-install.sh <command> [<package>]"; 
-   echo "commnad - can be either list of install";
-   echo "  list - enumarate list of available packages";
-   echo "  install - installs packages";
-   exit 1;
-fi
-
 COMMAND=$1
-PACKAGE=$2
 
-PAK_C_MAK_PATH=$(realpath "$(dirname "$BASH_SOURCE")")
+export PAK_C_MAK_PATH=$(realpath "$(dirname "$BASH_SOURCE")")
+
+function print_help {
+   echo "pak-c-mak <command> ..."; 
+   echo "  pak-c-mak list - enumarate list of available packages";
+   echo "  pak-c-mak install <package-name> - installs packages";
+   exit 1;
+}
 
 if [ "$COMMAND" = "list" ]; then
-  ls -1 "$CMAKE_VC_INSTALL_UTILS/packages/" | perl -wlne 'print $1 if /install-(.*)\.sh/'; 
-  exit 0;
+	if [ "$#" -ne 1 ]; then 
+	   print_help
+	fi
+
+	ls -1 "$PAK_C_MAK_PATH/packages/" | perl -wlne 'print $1 if /install-(.*)\.sh/'; 
+	exit 0;
 fi
 
 if [ "$COMMAND" = "install" ]; then
-  "$CMAKE_VC_INSTALL_UTILS/packages/install-$PACKAGE.sh"
-  exit 0;
+	if [ "$#" -ne 2 ]; then 
+	   print_help
+	fi
+	
+	PACKAGE=$2
+	
+	"$PAK_C_MAK_PATH/tools/execute-package-command" $PACKAGE pak-install
+	exit 0;
 fi

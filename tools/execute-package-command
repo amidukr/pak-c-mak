@@ -1,0 +1,5 @@
+
+PACKAGE=$1; shift
+source "$PAK_C_MAK_PATH/packages/install-$PACKAGE.sh"
+
+$@

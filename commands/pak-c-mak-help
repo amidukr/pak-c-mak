@@ -2,6 +2,6 @@
 
 echo "pak-c-mak <command> ..."; 
 echo "  pak-c-mak help - prints this message"
-echo "  pak-c-mak add-repo <repo> <git-url> <branch> - addd repository with packages";
+echo "  pak-c-mak add-repo <repo-name> <git-url> <git-branch> - addd repository with packages";
 echo "  pak-c-mak list - enumarates list of available packages";
 echo "  pak-c-mak install <package-name> - installs packages";

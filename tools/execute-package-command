@@ -1,6 +1,18 @@
 #!/bin/bash
 
 PACKAGE=$1; shift
-source "$PAK_C_MAK_PATH/packages/install-$PACKAGE.sh"
 
-$@
+INSTALL_SCRIPT_PATH=$PAK_C_MAK_PATH/packages/install-$PACKAGE.sh
+
+if [ -f "$INSTALL_SCRIPT_PATH" ]; then
+    source "$INSTALL_SCRIPT_PATH"
+	$@
+else
+	echo "Package with name $PACKAGE not found"  >&2
+	echo "  please use: pak-c-mak list " >&2
+	echo "     to see list of all available packages" >&2
+	echo "  package expected to be found here: $INSTALL_SCRIPT_PATH" >&2
+	
+	exit 1;
+fi
+

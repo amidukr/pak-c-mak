@@ -7,7 +7,7 @@ fi
 
 PACKAGES_DIR=$PAK_C_MAK_PATH/packages/
 
-if [ -d "$PROJECT_DOWNLOAD_DIR" ]; then
+if [ -d "$PACKAGES_DIR" ]; then
 	ls -1 "$PACKAGES_DIR" | perl -wlne 'print $1 if /install-(.*)\.sh/'; 
 else
 	echo "No repository installed, "

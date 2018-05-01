@@ -12,4 +12,4 @@ GIT_BRANCH=$3
 REPO_DIR=$("$PAK_C_MAK_PATH/tools/find-downloaded-content" repos $REPO)
 "$PAK_C_MAK_PATH/tools/download-git-clone" repos $REPO "$GIT_URL" $GIT_BRANCH
 mkdir -p "$PAK_C_MAK_PATH/packages/" 
-cp -rf "$REPO_DIR"/* "$PAK_C_MAK_PATH/packages/" 
+cp -rf "$REPO_DIR"/packages/* "$PAK_C_MAK_PATH/packages/" 

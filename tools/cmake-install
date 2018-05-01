@@ -2,15 +2,16 @@
 if [ "$#" -ne 1 ]; then 
    echo "cmake-install <project>"; exit 1;
 fi
-
+ 
 PROJECT=$1
 
 source "$PAK_C_MAK_PATH/pak-c-mak-env"
 
 PROJECT_DIR=$("$PAK_C_MAK_PATH/tools/find-downloaded-content" packages $PROJECT)
+PROJECT_BUILD_CACHE=$PAK_C_MAK_PATH/downloads/packages/build/$PROJECT
 
-mkdir -p "$PROJECT_DIR/build"
-cd "$PROJECT_DIR/build"
+mkdir -p "$PROJECT_BUILD_CACHE"
+cd "$PROJECT_BUILD_CACHE"
 
-cmake $PAK_C_MAK_CMAKE_ARGUMENTS -DCMAKE_INSTALL_PREFIX="$CMAKE_PREFIX_PATH" .. && \
+cmake $PAK_C_MAK_CMAKE_ARGUMENTS -DCMAKE_INSTALL_PREFIX="$CMAKE_PREFIX_PATH" "$PROJECT_DIR" && \
 cmake --build . $PAK_C_MAK_CMAKE_BUILD_ARGUMENT --target install

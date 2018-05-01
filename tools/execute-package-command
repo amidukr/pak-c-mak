@@ -9,9 +9,10 @@ if [ -f "$INSTALL_SCRIPT_PATH" ]; then
 	$@
 else
 	echo "Package with name $PACKAGE not found"  >&2
-	echo "  please use: pak-c-mak list " >&2
-	echo "     to see list of all available packages" >&2
-	echo "  package expected to be found here: $INSTALL_SCRIPT_PATH" >&2
+	echo "  to see a list of all available packages" >&2
+	echo "     please use following command:" >&2
+	echo "       pak-c-mak list " >&2
+	echo "  package $PACKAGE expected to be found here: $INSTALL_SCRIPT_PATH" >&2
 	
 	exit 1;
 fi

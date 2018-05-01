@@ -11,8 +11,9 @@ if [ -d "$PACKAGES_DIR" ]; then
 	ls -1 "$PACKAGES_DIR" | perl -wlne 'print $1 if /install-(.*)\.sh/'; 
 else
 	echo "No repository installed, "
-	echo "   please use command pak-c-mak add-repo ..."
-	echo "    to install repo with packages"
+	echo "   to install repo with packages "
+	echo "      please use following command:"
+	echo "         pak-c-mak add-repo ..."
 	echo "    pak-c-mak help - for more details"
 fi
 

@@ -10,15 +10,7 @@ REPO=$1
 GIT_URL=$2
 GIT_BRANCH=$3
 
-REPO_DIR=$("$PAK_C_MAK_TOOLS_PATH/find-downloaded-content" repos $REPO)
-"$PAK_C_MAK_TOOLS_PATH/download-git-clone" repos $REPO "$GIT_URL" $GIT_BRANCH
-mkdir -p "$PAK_C_MAK_PACKAGES_PATH/" 
-cp -rf "$REPO_DIR"/packages/* "$PAK_C_MAK_PACKAGES_PATH/" 
-
-if [ -d "$REPO_DIR/profiles" ]; then
-	mkdir -p "$PAK_C_MAK_PROFILES_PATH"
-	cp -rf "$REPO_DIR"/profiles/* "$PAK_C_MAK_PROFILES_PATH";
-fi
+"$PAK_C_MAK_TOOLS_PATH/download-repository-content" $REPO "$GIT_URL" $GIT_BRANCH
 
 mkdir -p "$PAK_C_MAK_REPOSITORIES_META_DB_PATH"
 
@@ -35,5 +27,3 @@ fi
 REPO_LIST=$(echo "$REPO_LIST" | grep -Fvx $REPO)
 echo "$REPO_LIST"$'\n'"$REPO" > "$PAK_C_MAK_REPOSITORIES_LIST_FILE"
 sed -i '/^$/d' "$PAK_C_MAK_REPOSITORIES_LIST_FILE"
-
-cat "$PAK_C_MAK_REPOSITORIES_LIST_FILE"

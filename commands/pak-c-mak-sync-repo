@@ -1,0 +1,37 @@
+#!/bin/bash
+
+if [ "$#" -ne 0 ] && [ "$#" -ne 1 ]; then 
+	"$PAK_C_MAK_COMMANDS_PATH/pak-c-mak-help" >&2
+	exit 1;
+fi
+
+if [ ! -f "$PAK_C_MAK_REPOSITORIES_LIST_FILE" ]; then
+	"$PAK_C_MAK_PRINT_ERRORS_PATH/no-repo-installed"
+	exit 1;
+fi
+
+if [ "$#" -eq 0 ]; then
+	while read REPOSITORY
+	do
+		"$PAK_C_MAK_PATH/pak-c-mak" sync-repo $REPOSITORY
+	done < "$PAK_C_MAK_REPOSITORIES_LIST_FILE"
+	exit 0;
+fi 
+
+if [ "$#" -eq 1 ]; then
+	set -e
+	
+	REPOSITORY=$1
+	REPO_META_FILE="$PAK_C_MAK_REPOSITORIES_META_DB_PATH/repo-meta-$REPOSITORY"
+	
+	if [ ! -f "$REPO_META_FILE" ]; then
+		echo  "Repository $REPOSITORY not found" >&2
+		echo  "  Repo meta file expected to be here:" >&2
+		echo  "    $REPO_META_FILE" >&2
+		
+		exit 1;
+	fi	
+	
+	source "$REPO_META_FILE"
+	"$PAK_C_MAK_TOOLS_PATH/download-repository-content" "$REPOSITORY" "$GIT_URL" "$GIT_BRANCH"
+fi 

@@ -9,9 +9,16 @@ GIT_URL=$3
 GIT_BRANCH=$4
 
 PROJECT_DOWNLOAD_DIR=$("$PAK_C_MAK_PATH/tools/find-downloaded-content" $TYPE $NAME)
-
-if [[ $PAK_C_MAK_LOCAL_PACKAGES =~ (^|[[:space:]])$NAME($|[[:space:]]) ]]; then
-    exit 0;
+if  [[ $PAK_C_MAK_LOCAL_PACKAGES =~ (^|[[:space:]])$NAME($|[[:space:]]) ]] || [[ $PAK_C_MAK_LOCAL_PACKAGES = '*' ]] ; then
+	DOWNLOADABLE_NAME=$(realpath "$PAK_C_MAK_PATH/../$NAME")
+	
+	if [ -d "$DOWNLOADABLE_NAME" ]; then
+		exit 0;
+	else
+		echo '$PAK_C_MAK_LOCAL_PACKAGES is set to' $NAME >&2 ;
+		echo "But $DOWNLOADABLE_NAME not found" >&2 ;
+		echo "Fallback to git url: $GIT_URL" >&2 ;
+	fi
 fi
 
 if [ -d "$PROJECT_DOWNLOAD_DIR" ]; then

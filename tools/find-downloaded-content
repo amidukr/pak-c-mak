@@ -6,19 +6,16 @@ fi
 TYPE=$1
 NAME=$2
 
-if [[ $PAK_C_MAK_LOCAL_PACKAGES =~ (^|[[:space:]])$NAME($|[[:space:]]) ]]; then
+if  [[ $PAK_C_MAK_LOCAL_PACKAGES =~ (^|[[:space:]])$NAME($|[[:space:]]) ]] || [[ $PAK_C_MAK_LOCAL_PACKAGES = '*' ]] ; then
 	DOWNLOADABLE_NAME=$(realpath "$PAK_C_MAK_PATH/../$NAME")
 	
-	if [ ! -d "$DOWNLOADABLE_NAME" ]; then
-		echo '$PAK_C_MAK_LOCAL_PACKAGES is set to' $NAME >&2 ;
-		echo "But $DOWNLOADABLE_NAME not found" >&2 ;
-		exit 1;
+	if [ -d "$DOWNLOADABLE_NAME" ]; then
+		echo $DOWNLOADABLE_NAME
+		exit 0;
 	fi
-
-	echo $DOWNLOADABLE_NAME
-else
-	echo $PAK_C_MAK_PATH/pak_c_mak_tmp/downloads/$TYPE/$NAME
 fi
+
+echo $PAK_C_MAK_PATH/pak_c_mak_tmp/downloads/$TYPE/$NAME
 
 
 

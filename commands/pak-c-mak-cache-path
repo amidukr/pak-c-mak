@@ -1,0 +1,8 @@
+#!/bin/bash
+
+if [ "$#" -ne 0 ]; then 
+	"$PAK_C_MAK_COMMANDS_PATH/pak-c-mak-help" >&2
+	exit 1;
+fi
+
+echo "$PAK_C_MAK_CACHE_PATH"

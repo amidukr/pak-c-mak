@@ -6,7 +6,7 @@ if [ "$#" -ne 0 ]; then
 fi
 
 if [ -d "$PAK_C_MAK_PACKAGES_PATH" ]; then
-	ls -1 "$PAK_C_MAK_PACKAGES_PATH" | perl -wlne 'print $1 if /install-(.*)\.sh/'; 
+	ls -1 "$PAK_C_MAK_PACKAGES_PATH" | perl -wlne 'print $1 if /install-(.*)/'; 
 else
 	"$PAK_C_MAK_PRINT_ERRORS_PATH/no-repo-installed"
 	exit 1;

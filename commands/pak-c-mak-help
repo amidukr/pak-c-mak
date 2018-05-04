@@ -7,6 +7,8 @@ echo "  pak-c-mak install <package-name> - installs packages";
 echo "  pak-c-mak add-repo <repo-name> <git-url> <git-branch> - addd repository with packages";
 echo "  pak-c-mak repo-list - enumarates list of imported repositories";
 echo "  pak-c-mak sync-repo [repo-name]- re-imported packages from repositories";
+echo "  pak-c-mak profiles-list - prints list of available profiles";
+echo "  pak-c-mak cache-path - prints path to cache with installed artifacts";
 echo "  pak-c-mak clean-downloads - clean downloaded package and repo cache";
 echo "";
 echo "Environment variables:"
@@ -15,4 +17,6 @@ echo "    PAK_C_MAK_PATH - "
 echo "    PAK_C_MAK_CMAKE_GENERATOR - " 
 echo "    PAK_C_MAK_CMAKE_ARGUMENTS - "
 echo "    PAK_C_MAK_CMAKE_BUILD_ARGUMENT - "
-echo "    PAK_C_MAK_LOCAL_PACKAGES -"
+echo "    PAK_C_MAK_LOCAL_PACKAGES - "
+echo "    PAK_C_MAK_PROFILES - "
+echo "    PAK_C_MAK_CACHE_POSTFIX -"

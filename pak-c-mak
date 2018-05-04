@@ -1,11 +1,24 @@
 #!/bin/bash
 set -e
 
-COMMAND=$1; shift
-
 export PAK_C_MAK_PATH=$(realpath "$(dirname "$BASH_SOURCE")")
 
+PROFILES_PATH="$PAK_C_MAK_PATH/repositories/profiles"
+
+for PROFILE in $PAK_C_MAK_PROFILES
+do
+	PROFILE_FILE_PATH="$PROFILES_PATH/profile-$PROFILE"
+	if [ -f "$PROFILE_FILE_PATH" ]; then
+		source "$PROFILE_FILE_PATH";
+	else
+		echo '$PAK_C_MAK_PROFILES is set to' $PROFILE >&2 ;
+		echo "  However $PROFILE_FILE_PATH not found" >&2 ;
+	fi
+done
+
 source "$PAK_C_MAK_PATH/tools/set-env-extended"
+
+COMMAND=$1; shift
 
 COMMAND_SCRIPT="$PAK_C_MAK_COMMANDS_PATH/pak-c-mak-$COMMAND"
 

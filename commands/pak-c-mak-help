@@ -9,7 +9,7 @@ echo "  pak-c-mak repo-list - enumarates list of imported repositories";
 echo "  pak-c-mak sync-repo [repo-name]- re-imported packages from repositories";
 echo "  pak-c-mak profiles-list - prints list of available profiles";
 echo "  pak-c-mak cache-path - prints path to cache with installed artifacts";
-echo "  pak-c-mak clean-downloads - clean downloaded package and repo cache";
+echo "  pak-c-mak clean-temp - clean temp folder with downloaded packages and build cache";
 echo "";
 echo "Environment variables:"
 echo "  Please, use export command to share variable with pak-c-mak scripts"

@@ -5,4 +5,4 @@ if [ "$#" -ne 0 ]; then
 	exit 1;
 fi
 
-rm -rf "$PAK_C_MAK_DOWNLOADS_PATH"
+rm -rf "$PAK_C_MAK_TMP_PATH"

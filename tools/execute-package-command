@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 PACKAGE=$1; shift
 
 INSTALL_SCRIPT_PATH=$PAK_C_MAK_PATH/packages/install-$PACKAGE.sh

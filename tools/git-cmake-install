@@ -3,6 +3,8 @@ if [ "$#" -ne 3 ]; then
    echo "git-cmake-install <project> <git-url> <git-branch>"; exit 1;
 fi
 
+set -e
+
 PROJECT=$1
 GIT_URL=$2
 GIT_BRANCH=$3

@@ -10,6 +10,17 @@ GIT_BRANCH=$4
 
 PROJECT_DOWNLOAD_DIR=$("$PAK_C_MAK_PATH/tools/find-downloaded-content" $TYPE $NAME)
 
+if [[ $PAK_C_MAK_LOCAL_PACKAGES =~ (^|[[:space:]])$NAME($|[[:space:]]) ]]; then
+    exit 0;
+fi
+
+if [ -d "$PROJECT_DOWNLOAD_DIR" ]; then
+	if [ ! -d "$PROJECT_DOWNLOAD_DIR/.git" ]; then
+		rm -rf "$PROJECT_DOWNLOAD_DIR"
+	fi
+fi
+ 
+
 if [ -d "$PROJECT_DOWNLOAD_DIR" ]; then
 	#rm -rf "$PROJECT_DOWNLOAD_DIR"
 	cd "$PROJECT_DOWNLOAD_DIR"

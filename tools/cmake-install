@@ -2,13 +2,15 @@
 if [ "$#" -ne 1 ]; then 
    echo "cmake-install <project>"; exit 1;
 fi
+
+set -e
  
 PROJECT=$1
 
 source "$PAK_C_MAK_PATH/pak-c-mak-env"
 
 PROJECT_DIR=$("$PAK_C_MAK_PATH/tools/find-downloaded-content" packages $PROJECT)
-PROJECT_BUILD_CACHE=$PAK_C_MAK_PATH/downloads/packages/build/$PROJECT
+PROJECT_BUILD_CACHE=$PAK_C_MAK_PATH/pak_c_mak_tmp/cmake-builds/$PROJECT
 
 mkdir -p "$PROJECT_BUILD_CACHE"
 cd "$PROJECT_BUILD_CACHE"

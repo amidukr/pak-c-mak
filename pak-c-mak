@@ -5,11 +5,13 @@ COMMAND=$1; shift
 
 export PAK_C_MAK_PATH=$(realpath "$(dirname "$BASH_SOURCE")")
 
-COMMAND_SCRIPT="$PAK_C_MAK_PATH/commands/pak-c-mak-$COMMAND"
+source "$PAK_C_MAK_PATH/tools/set-env-extended"
+
+COMMAND_SCRIPT="$PAK_C_MAK_COMMANDS_PATH/pak-c-mak-$COMMAND"
 
 if [ -f "$COMMAND_SCRIPT" ]; then
     "$COMMAND_SCRIPT" $@
 else
-    "$PAK_C_MAK_PATH/commands/pak-c-mak-help"
+    "$PAK_C_MAK_COMMANDS_PATH/pak-c-mak-help"
 	exit 1;
 fi

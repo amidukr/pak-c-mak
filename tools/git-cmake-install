@@ -9,5 +9,5 @@ PROJECT=$1
 GIT_URL=$2
 GIT_BRANCH=$3
 
-"$PAK_C_MAK_PATH/tools/download-git-clone" packages $PROJECT "$GIT_URL" master
-"$PAK_C_MAK_PATH/tools/cmake-install" $PROJECT
+"$PAK_C_MAK_TOOLS_PATH/download-git-clone" packages $PROJECT "$GIT_URL" master
+"$PAK_C_MAK_TOOLS_PATH/cmake-install" $PROJECT

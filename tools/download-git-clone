@@ -8,7 +8,7 @@ NAME=$2
 GIT_URL=$3
 GIT_BRANCH=$4
 
-PROJECT_DOWNLOAD_DIR=$("$PAK_C_MAK_PATH/tools/find-downloaded-content" $TYPE $NAME)
+PROJECT_DOWNLOAD_DIR=$("$PAK_C_MAK_TOOLS_PATH/find-downloaded-content" $TYPE $NAME)
 if  [[ $PAK_C_MAK_LOCAL_PACKAGES =~ (^|[[:space:]])$NAME($|[[:space:]]) ]] || [[ $PAK_C_MAK_LOCAL_PACKAGES = '*' ]] ; then
 	DOWNLOADABLE_NAME=$(realpath "$PAK_C_MAK_PATH/../$NAME")
 	

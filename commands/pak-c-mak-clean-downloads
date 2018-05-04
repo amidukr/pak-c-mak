@@ -1,8 +1,8 @@
 #!/bin/bash
 
 if [ "$#" -ne 0 ]; then 
-	"$PAK_C_MAK_PATH/commands/pak-c-mak-help"
+	"$PAK_C_MAK_COMMANDS_PATH/pak-c-mak-help"
 	exit 1;
 fi
 
-rm -rf "$PAK_C_MAK_PATH/downloads"
+rm -rf "$PAK_C_MAK_DOWNLOADS_PATH"

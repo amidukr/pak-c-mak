@@ -15,7 +15,7 @@ if  [[ $PAK_C_MAK_LOCAL_PACKAGES =~ (^|[[:space:]])$NAME($|[[:space:]]) ]] || [[
 	fi
 fi
 
-echo $PAK_C_MAK_PATH/pak_c_mak_tmp/downloads/$TYPE/$NAME
+echo $PAK_C_MAK_DOWNLOADS_PATH/$TYPE/$NAME
 
 
 

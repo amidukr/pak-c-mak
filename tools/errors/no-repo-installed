@@ -1,0 +1,7 @@
+#!/bin/bash
+
+echo "No repository installed, " >&2
+echo "   to install repo with packages " >&2
+echo "      please use following command:" >&2
+echo "         pak-c-mak add-repo ..." >&2
+echo "    pak-c-mak help - for more details" >&2

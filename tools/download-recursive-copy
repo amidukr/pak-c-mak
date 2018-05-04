@@ -1,6 +1,6 @@
 #!/bin/bash
 if [ "$#" -ne 3	 ]; then 
-   echo "download-recursive-copy <type> <name> <path>"; exit 1;
+   echo "download-recursive-copy <type> <name> <path>" >&2; exit 1;
 fi
 
 TYPE=$1

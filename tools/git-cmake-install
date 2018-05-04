@@ -1,6 +1,6 @@
 #!/bin/bash
 if [ "$#" -ne 3 ]; then 
-   echo "git-cmake-install <project> <git-url> <git-branch>"; exit 1;
+   echo "git-cmake-install <project> <git-url> <git-branch>" >&2; exit 1;
 fi
 
 set -e

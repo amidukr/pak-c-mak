@@ -1,6 +1,6 @@
 #!/bin/bash
 if [ "$#" -ne 2 ]; then 
-  echo "find-downloaded-content <content-type> <content-id>" >&2 ; exit 1;
+  echo "find-downloaded-content <content-type> <content-id>" >&2; exit 1;
 fi
 
 TYPE=$1

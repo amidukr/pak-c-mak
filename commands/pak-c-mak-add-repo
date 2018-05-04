@@ -2,7 +2,7 @@
 set -e
 
 if [ "$#" -ne 3 ]; then 
-	"$PAK_C_MAK_COMMANDS_PATH/pak-c-mak-help"
+	"$PAK_C_MAK_COMMANDS_PATH/pak-c-mak-help" >&2
 	exit 1;
 fi
 

@@ -1,6 +1,6 @@
 #!/bin/bash
 if [ "$#" -ne 4	 ]; then 
-   echo "download-git-clone <type> <name> <git-url> <git-branch>"; exit 1;
+   echo "download-git-clone <type> <name> <git-url> <git-branch>" >&2; exit 1;
 fi
 
 TYPE=$1

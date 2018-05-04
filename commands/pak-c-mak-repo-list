@@ -1,18 +1,13 @@
 #!/bin/bash
 
 if [ "$#" -ne 0 ]; then 
-	"$PAK_C_MAK_COMMANDS_PATH/pak-c-mak-help"
+	"$PAK_C_MAK_COMMANDS_PATH/pak-c-mak-help" >&2
 	exit 1;
 fi
 
 if [ -f "$PAK_C_MAK_REPOSITORIES_LIST_FILE" ]; then
 	cat "$PAK_C_MAK_REPOSITORIES_LIST_FILE"
 else
-	echo "No repository installed, "
-	echo "   to install repo with packages "
-	echo "      please use following command:"
-	echo "         pak-c-mak add-repo ..."
-	echo "    pak-c-mak help - for more details"
+	"$PAK_C_MAK_PRINT_ERRORS_PATH/no-repo-installed"
+	exit 1;
 fi
-
-

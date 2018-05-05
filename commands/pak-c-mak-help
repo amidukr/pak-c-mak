@@ -1,22 +1,32 @@
 #!/bin/bash
 
-echo "pak-c-mak <command> ..."; 
-echo "  pak-c-mak help - prints this message"
-echo "  pak-c-mak list - enumarates list of available packages";
-echo "  pak-c-mak install <package-name> - installs packages";
-echo "  pak-c-mak add-repo <repo-name> <git-url> <git-branch> - addd repository with packages";
-echo "  pak-c-mak repo-list - enumarates list of imported repositories";
-echo "  pak-c-mak sync-repo [repo-name]- re-imported packages from repositories";
-echo "  pak-c-mak profiles-list - prints list of available profiles";
-echo "  pak-c-mak cache-path - prints path to cache with installed artifacts";
-echo "  pak-c-mak clean-temp - clean temp folder with downloaded packages and build cache";
-echo "";
-echo "Environment variables:"
-echo "  Please, use export command to share variable with pak-c-mak scripts"
-echo "    PAK_C_MAK_PATH - "
-echo "    PAK_C_MAK_CMAKE_GENERATOR - " 
-echo "    PAK_C_MAK_CMAKE_ARGUMENTS - "
-echo "    PAK_C_MAK_CMAKE_BUILD_ARGUMENT - "
-echo "    PAK_C_MAK_LOCAL_PACKAGES - "
-echo "    PAK_C_MAK_PROFILES - "
-echo "    PAK_C_MAK_CACHE_POSTFIX -"
+echo 'pak-c-mak <command> ...'; 
+echo '  pak-c-mak help - prints this message'
+echo '  pak-c-mak list - enumerates list of available packages';
+echo '  pak-c-mak install <package-name> - installs packages into:'
+echo '                                     $PAK_C_MAK_PATH/cache$PAK_C_MAK_CACHE_POSTFIX directory';
+echo '  pak-c-mak add-repo <repo-name> <git-url> <git-branch> - adds repository with packages';
+echo '  pak-c-mak repo-list - enumerates list of imported repositories';
+echo '  pak-c-mak sync-repo [repo-name]- re-imported packages from repositories';
+echo '  pak-c-mak profiles-list - prints list of available profiles';
+echo '  pak-c-mak cache-path - prints path to cache with installed artifacts';
+echo '  pak-c-mak clean-temp - clean temp folder with downloaded packages and build caches';
+echo '';
+echo 'Environment variables:'
+echo '  Please, use export command to share following variables with pak-c-mak scripts'
+echo '    PAK_C_MAK_PATH - pak-c-mak root directory, detected automatically,'
+echo '                     should not be specified manually'
+echo '    PAK_C_MAK_CMAKE_GENERATOR - generator argument for cmake -G command'
+echo '    PAK_C_MAK_CMAKE_ARGUMENTS - cmake arguments for configure phase'
+echo '    PAK_C_MAK_CMAKE_BUILD_ARGUMENT - cmake arguments for build phase'
+echo '    PAK_C_MAK_LOCAL_PACKAGES - variable used to enable local development mode'
+echo '                               should be defined as space separated list of packages'
+echo '                               or wildcard * for all packages'
+echo '                               forces to find packages using following path template:'
+echo '                               $PAK_C_MAK_PATH/../$PACKAGE_NAME,'
+echo '                               and only then looks into remote git repository'
+echo '                               can be used for repo lookup as well'
+echo '    PAK_C_MAK_PROFILES - space separated list of profiles to activate'
+echo '    PAK_C_MAK_CACHE_POSTFIX - postfix for repository cache directory,'
+echo '                              used to keep binary incompatible outputs in different directories,'
+echo '                              example: MSVC and MinGW builds, Debug and Release builds, etc.'

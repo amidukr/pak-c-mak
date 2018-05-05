@@ -7,7 +7,7 @@ echo '  pak-c-mak install <package-name> - installs packages into:'
 echo '                                     $PAK_C_MAK_PATH/cache$PAK_C_MAK_CACHE_POSTFIX directory';
 echo '  pak-c-mak add-repo <repo-name> <git-url> <git-branch> - adds repository with packages';
 echo '  pak-c-mak repo-list - enumerates list of imported repositories';
-echo '  pak-c-mak sync-repo [repo-name]- re-imported packages from repositories';
+echo '  pak-c-mak sync-repo [repo-name]- re-import packages from repositories';
 echo '  pak-c-mak profiles-list - prints list of available profiles';
 echo '  pak-c-mak cache-path - prints path to cache with installed artifacts';
 echo '  pak-c-mak clean-temp - clean temp folder with downloaded packages and build caches';

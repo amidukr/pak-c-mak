@@ -127,7 +127,7 @@ Building and installing **pak-c-mak** demo application
   -- Installing: /home/vagrant/pak-c-mak/cache/lib/libpak_c_mak_demo_app_library.a
 ```
 
-Verifying the **pak-c-mak** demo application successfully installed.
+Verifying that **pak-c-mak** demo application successfully installed.
 ```shell
 ./pak-c-mak/cache/bin/pak_c_mak_demo_app_executable
   MyHoldVariable of MyHolderClass
@@ -176,18 +176,18 @@ Building and installing **pak-c-mak** demo application again
   -- Installing: /home/vagrant/pak-c-mak/cache/lib/libpak_c_mak_demo_app_library.a
 ```
   
-Verifying that local changed copy of **pak-c-mak** of demo application is installed.
+Verifying that locally changed copy of **pak-c-mak** demo application is installed.
 ```shell
 ./pak-c-mak/cache/bin/pak_c_mak_demo_app_executable
   MyHoldVariable of MyHolderClass updated text
 ```
 ## Creating pak-c-mak repository
-To create your pak-c-mak repository, just simply use [pak-c-mak-demo-repo](https://github.com/amidukr/pak-c-mak-demo-repo) as template for your repository.
 
+To create your pak-c-mak repository, just simply use [pak-c-mak-demo-repo](https://github.com/amidukr/pak-c-mak-demo-repo) as template for your repository.
 
 # Contribution
 
-If you would like to contribute would appreciate any help:
+If you would like to contribute any help would be appreciated:
 - The platform currently was not tested on OS X and BSD platform, so looking for feedbacks.
 - If you've found this tool useful and you are keeping pak-c-mak repositories with your modules, please let know, will keep DB updated with list of public pak-c-mak repositories.
 - Project team open for any suggestions and improvements.

@@ -5,7 +5,9 @@ if [ "$#" -eq 0 ]; then
    echo "Use pak-c-mak help for more info" >&2; exit 1;
 fi
 
-export PAK_C_MAK_PATH=$(realpath "$(dirname "$BASH_SOURCE")")
+export PAK_C_MAK_PATH="$( cd "$(dirname "$BASH_SOURCE")" ; pwd -P )"
+
+"$PAK_C_MAK_PATH/tools/check-required-commands"
 
 PROFILES_PATH="$PAK_C_MAK_PATH/repositories/profiles"
 

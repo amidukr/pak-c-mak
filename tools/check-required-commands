@@ -1,0 +1,25 @@
+#!/bin/bash
+if [ "$#" -ne 0 ]; then 
+  echo "check-required-commands" >&2; exit 1;
+fi
+
+check_command () {
+	command -v $1 >/dev/null
+	if [ $? -ne 0 ]; then
+		echo "$1 command not found" >&2;
+		echo ERROR
+	fi
+}
+
+ERROR_FOUND=
+
+ERROR_FOUND="$ERROR_FOUND$(check_command git)"
+ERROR_FOUND="$ERROR_FOUND$(check_command cmake)"
+ERROR_FOUND="$ERROR_FOUND$(check_command realpath)"
+ERROR_FOUND="$ERROR_FOUND$(check_command perl)"
+ERROR_FOUND="$ERROR_FOUND$(check_command sed)"
+
+if [ ! "$ERROR_FOUND" == "" ]; then
+	echo Please install these packages before using pak-c-mak >&2;
+	exit 1;
+fi

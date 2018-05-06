@@ -181,7 +181,8 @@ Verifying that local changed copy of **pak-c-mak** of demo application is instal
 ./pak-c-mak/cache/bin/pak_c_mak_demo_app_executable
   MyHoldVariable of MyHolderClass updated text
 ```
-
+## pak-c-mak repository
+To create your pak-c-mak repository, use [pak-c-make-demo-repo](https://github.com/amidukr/pak-c-mak-demo-repo) as template for your repository.
 
 
 # Contribution

@@ -190,7 +190,7 @@ To create your pak-c-mak repository, just simply use [pak-c-mak-demo-repo](https
 If you would like to contribute any help would be appreciated:
 - The platform currently was not tested on OS X and BSD platform, so looking for feedbacks.
 - If you've found this tool useful and you are keeping pak-c-mak repositories with your modules, please let know, will keep DB updated with list of public pak-c-mak repositories.
-- Project team open for any suggestions and improvements.
+- Project team is open for any suggestions and improvements.
 
 # Contacts
 For any question feel free to contact me: **Dmytro Brazhnyk** <<amid.ukr@gmail.com>>

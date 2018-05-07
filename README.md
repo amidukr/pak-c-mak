@@ -73,9 +73,9 @@ For complete command list please run help command: [pak-c-mak help](commands/pak
 Installing required packages for **pak-c-mak**
 ```shell
 sudo apt-get update
-sudo apt-get install git
-sudo apt-get install cmake
-sudo apt-get install build-essential
+sudo apt-get -y install git
+sudo apt-get -y install cmake
+sudo apt-get -y install build-essential
 ```
 
 Cloning **pak-c-mak**

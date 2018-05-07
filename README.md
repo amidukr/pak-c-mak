@@ -49,7 +49,7 @@ For complete command list please run help command: [pak-c-mak help](commands/pak
   - on ***Windows*** it could be ***MS Visual Studio***
   - on ***Linux*** it could be ***build-essential*** package
 - **bash utilities**
-  - ***realpath***
+  - ***dirname***
   - ***perl***
   - ***sed***
 
@@ -74,7 +74,6 @@ Installing required packages for **pak-c-mak**
 ```shell
 sudo apt-get update
 sudo apt-get install git
-sudo apt-get install realpath
 sudo apt-get install cmake
 sudo apt-get install build-essential
 ```
@@ -156,11 +155,6 @@ Enabling **pak-c-mak** development mode, so package will be searched on local fi
 export PAK_C_MAK_LOCAL_PACKAGES=*
 ```
 
-Cleaning temporary cmake build cache, otherwise cmake complains that previous built was done from different source code directory.
-```shell
-./pak-c-mak/pak-c-mak clean-temp
-```
-
 Building and installing **pak-c-mak** demo application again
 ```shell
 ./pak-c-mak/pak-c-mak install pak-c-mak-demo-app
@@ -180,6 +174,13 @@ Verifying that locally changed copy of **pak-c-mak** demo application is install
 ## Creating pak-c-mak repository
 
 To create your pak-c-mak repository, just simply use [pak-c-mak-demo-repo](https://github.com/amidukr/pak-c-mak-demo-repo) as template for your repository.
+
+## Cleaning CMake build cache
+
+Some changes to CMakeLists.txt file may require cleaning of cmake build cache, please use following command:
+```shell
+./pak-c-mak/pak-c-mak clean-cmake-build
+```
 
 # Contribution
 

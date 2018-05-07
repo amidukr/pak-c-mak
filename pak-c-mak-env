@@ -1,2 +1,2 @@
-PAK_C_MAK_PATH=$(realpath "$(dirname "$BASH_SOURCE")")
+PAK_C_MAK_PATH="$( cd "$(dirname "$BASH_SOURCE")" ; pwd -P )"
 export CMAKE_PREFIX_PATH=$("$PAK_C_MAK_PATH/pak-c-mak" cache-path)

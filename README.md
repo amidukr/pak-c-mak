@@ -70,10 +70,6 @@ For complete command list please run help command: [pak-c-mak help](commands/pak
 
 ## Installing pak-c-mak-demo-app
 
-https://github.com/harto/realpath-osx
-
-
-
 Installing required packages for **pak-c-mak**
 ```shell
 sudo apt-get update

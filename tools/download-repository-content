@@ -11,7 +11,12 @@ GIT_BRANCH=$3
 
 echo Syncing $REPO from $GIT_URL and $GIT_BRANCH
 
-REPO_DIR=$("$PAK_C_MAK_TOOLS_PATH/find-downloaded-content" repos $REPO)
+DOWNLOADABLE_TYPE=repos
+DOWNLOADABLE_NAME=$REPO
+
+source "$PAK_C_MAK_TOOLS_PATH/find-downloaded-content"
+REPO_DIR="$PACKAGE_DIRECTORY_PATH"
+
 "$PAK_C_MAK_TOOLS_PATH/download-git-clone" repos $REPO "$GIT_URL" $GIT_BRANCH
 mkdir -p "$PAK_C_MAK_PACKAGES_PATH/" 
 cp -rf "$REPO_DIR"/packages/* "$PAK_C_MAK_PACKAGES_PATH/" 

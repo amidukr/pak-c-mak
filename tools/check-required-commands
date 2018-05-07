@@ -15,11 +15,11 @@ ERROR_FOUND=
 
 ERROR_FOUND="$ERROR_FOUND$(check_command git)"
 ERROR_FOUND="$ERROR_FOUND$(check_command cmake)"
-ERROR_FOUND="$ERROR_FOUND$(check_command realpath)"
+ERROR_FOUND="$ERROR_FOUND$(check_command dirname)"
 ERROR_FOUND="$ERROR_FOUND$(check_command perl)"
 ERROR_FOUND="$ERROR_FOUND$(check_command sed)"
 
-if [ ! "$ERROR_FOUND" == "" ]; then
+if [ -n "$ERROR_FOUND" ]; then
 	echo Please install these packages before using pak-c-mak >&2;
 	exit 1;
 fi

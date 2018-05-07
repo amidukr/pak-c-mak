@@ -1,21 +1,22 @@
 #!/bin/bash
-if [ "$#" -ne 2 ]; then 
-  echo "find-downloaded-content <content-type> <content-id>" >&2; exit 1;
+
+if [ -z "$DOWNLOADABLE_TYPE" ]; then 
+  echo "DOWNLOADABLE_TYPE variable expected to be set" >&2; exit 1;
 fi
 
-TYPE=$1
-NAME=$2
+if [ -z "$DOWNLOADABLE_NAME" ]; then 
+  echo "DOWNLOADABLE_NAME variable expected to be set" >&2; exit 1;
+fi
 
-if  [[ $PAK_C_MAK_LOCAL_PACKAGES =~ (^|[[:space:]])$NAME($|[[:space:]]) ]] || [[ $PAK_C_MAK_LOCAL_PACKAGES = '*' ]] ; then
-	DOWNLOADABLE_NAME=$(realpath "$PAK_C_MAK_PATH/../$NAME")
+if  [[ $PAK_C_MAK_LOCAL_PACKAGES =~ (^|[[:space:]])$DOWNLOADABLE_NAME($|[[:space:]]) ]] || [[ $PAK_C_MAK_LOCAL_PACKAGES = '*' ]] ; then
+	PACKAGE_DIRECTORY_PATH="$(dirname "$PAK_C_MAK_PATH")/$DOWNLOADABLE_NAME"
 	
-	if [ -d "$DOWNLOADABLE_NAME" ]; then
-		echo $DOWNLOADABLE_NAME
-		exit 0;
+	if [ -d "$PACKAGE_DIRECTORY_PATH" ]; then
+		PACKAGE_DIRECTORY_TYPE=LOCAL
 	fi
 fi
 
-echo $PAK_C_MAK_DOWNLOADS_PATH/$TYPE/$NAME
-
-
-
+if [ -z "$PACKAGE_DIRECTORY_TYPE" ]; then
+	PACKAGE_DIRECTORY_TYPE=REMOTE
+	PACKAGE_DIRECTORY_PATH="$PAK_C_MAK_DOWNLOADS_PATH/$DOWNLOADABLE_TYPE/$DOWNLOADABLE_NAME"
+fi

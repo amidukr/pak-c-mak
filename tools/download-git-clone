@@ -3,36 +3,36 @@ if [ "$#" -ne 4	 ]; then
    echo "download-git-clone <type> <name> <git-url> <git-branch>" >&2; exit 1;
 fi
 
-TYPE=$1
-NAME=$2
+DOWNLOADABLE_TYPE=$1
+DOWNLOADABLE_NAME=$2
 GIT_URL=$3
 GIT_BRANCH=$4
 
-PROJECT_DOWNLOAD_DIR=$("$PAK_C_MAK_TOOLS_PATH/find-downloaded-content" $TYPE $NAME)
-if  [[ $PAK_C_MAK_LOCAL_PACKAGES =~ (^|[[:space:]])$NAME($|[[:space:]]) ]] || [[ $PAK_C_MAK_LOCAL_PACKAGES = '*' ]] ; then
-	DOWNLOADABLE_NAME=$(realpath "$PAK_C_MAK_PATH/../$NAME")
-	
-	if [ -d "$DOWNLOADABLE_NAME" ]; then
+source "$PAK_C_MAK_TOOLS_PATH/find-downloaded-content"
+PROJECT_DIR="$PACKAGE_DIRECTORY_PATH"
+
+if  [[ $PAK_C_MAK_LOCAL_PACKAGES =~ (^|[[:space:]])$DOWNLOADABLE_NAME($|[[:space:]]) ]] || [[ $PAK_C_MAK_LOCAL_PACKAGES = '*' ]] ; then	
+	if [ "$PACKAGE_DIRECTORY_TYPE" == "LOCAL" ]; then
 		exit 0;
 	else
-		echo '$PAK_C_MAK_LOCAL_PACKAGES is set to' $NAME >&2 ;
-		echo "But $DOWNLOADABLE_NAME not found" >&2 ;
+		echo '$PAK_C_MAK_LOCAL_PACKAGES is set to' $DOWNLOADABLE_NAME >&2 ;
+		echo "But $PROJECT_DIR not found" >&2 ;
 		echo "Fallback to git url: $GIT_URL" >&2 ;
 	fi
 fi
 
-if [ -d "$PROJECT_DOWNLOAD_DIR" ]; then
-	if [ ! -d "$PROJECT_DOWNLOAD_DIR/.git" ]; then
-		rm -rf "$PROJECT_DOWNLOAD_DIR"
+if [ -d "$PROJECT_DIR" ]; then
+	if [ ! -d "$PROJECT_DIR/.git" ]; then
+		rm -rf "$PROJECT_DIR"
 	fi
 fi
- 
 
-if [ -d "$PROJECT_DOWNLOAD_DIR" ]; then
-	#rm -rf "$PROJECT_DOWNLOAD_DIR"
-	cd "$PROJECT_DOWNLOAD_DIR"
+
+if [ -d "$PROJECT_DIR" ]; then
+	#rm -rf "$PROJECT_DIR"
+	cd "$PROJECT_DIR"
 	git fetch origin
 	git reset --hard origin/$GIT_BRANCH
 else 
-	git clone -b $GIT_BRANCH "$GIT_URL" "$PROJECT_DOWNLOAD_DIR"
+	git clone -b $GIT_BRANCH "$GIT_URL" "$PROJECT_DIR"
 fi

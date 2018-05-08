@@ -90,7 +90,7 @@ Adding **pak-c-mak** demo repository with packages and profiles
 ./pak-c-mak/pak-c-mak add-repo pak-c-mak-demo-repo https://github.com/amidukr/pak-c-mak-demo-repo master
 ```
 
-Verifying if packages successfully installed.
+Verifying if packages are successfully installed.
 ```shell
 ./pak-c-mak/pak-c-mak list
   googletest

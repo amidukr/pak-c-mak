@@ -175,6 +175,18 @@ Verifying that locally changed copy of **pak-c-mak** demo application is install
 
 To create your pak-c-mak repository, just simply use [pak-c-mak-demo-repo](https://github.com/amidukr/pak-c-mak-demo-repo) as template for your repository.
 
+## Build using CMake CMAKE_PREFIX_PATH
+
+To access artifacts installed into pak-c-mak cache, CMAKE_PREFIX_PATH variable could be used for CMake based modules. More information about this variable can be found in CMake official documentation.
+
+https://cmake.org/cmake/help/latest/variable/CMAKE_PREFIX_PATH.html
+
+To configure CMAKE_PREFIX_PATH variable for using pak-c-mak cache, please use following command:
+
+```shell
+source ./pak-c-mak/pak-c-mak-env
+```
+
 ## Cleaning CMake build cache
 
 Some changes to CMakeLists.txt file may require cleaning of cmake build cache, please use following command:

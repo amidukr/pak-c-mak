@@ -16,10 +16,12 @@ The intention for this tool is to bring best practices to manage single package 
 
 In **Java** enterprise worlds, where web application could be very complex and contains hundreds and sometime up to thousand of transitive dependencies. Java binary executable format already made in that way, so different module's binaries already compatible even if they compiled for different platforms. So it makes possible for Java, to keep central repository for binary artifacts compatible with any platform like Maven central repository. Using java eco system it is easily possible to build an application from single command on the system where only JDK is installed. Commonly adopted build tools Maven and Gradle with support of maven repositories do it all for you. 
 
-In **C++** worlds, CMake is commonly adopted tool for cross-platform module build, however maintaining binary compatibility between artifacts build for different platform on different C++compilere like maven central is tricky thing. For C++ cross-platform development in many situations it is more efficient to keep compatibility on source code level instead, and build all set of binaries for particular platform from source code, instead of creating universal binary one, and for this reason googletest, boost and other suggesting just to download their source coded and keep it somewhere near to your project code and import it from there. It seems that cross-platform central binary repository for Cross C++ will never happen. 
-It still possible use deb manager for Ubuntu or vcpkg for Windows, but in this case it will be platform dependent development, so it is not cross-platform anymore.
+In **C++** worlds, CMake is commonly adopted tool for cross-platform module build, however maintaining binary compatibility between artifacts for different platform and C++ compiler versions is tricky thing. In C++ cross-platform development world it is more efficient to keep compatibility on source code level, and do the build for every platform independently, and keep series of binaries for every new platform configuration, instead of creating universal binary one.
+As example: googletest, boost and other suggesting just to download their source coded and keep it close to project code and import it from there instead of using any central repository. It still possible to install googletest or boost using deb manager for Ubuntu, vcpkg for Windows or etc, but in this case it will be platform dependent development, so it is not cross-platform anymore.
 
-**pak-c-mak** is simple cross-platform distributed package manager based on **Git** and **CMake**. Git is distributed version control system, on Linux it is just DVCS, while on Windows it is also provides as dependency bash eco system, that is enough to write cross platform scripts for Linux, Unix, Windows, Mac is etc. CMake is already perfectly cool, it can be used to install packages into you OS in cross-platform way. Pak-c-mak is simply set of script that provide single command line interface same for any platform, eliminating usage difference that exists for CLI and scripting on different platforms.
+The cross-platform central binary repository for Cross-Platform C++ will never happen, however based on **Rust** experience, which has same limitation like C++, it is efficient to manage dependencies to other modules as to buildable source code.
+
+**pak-c-mak** is simple cross-platform distributed package manager based on **Git** and **CMake**. Git is distributed version control system, on Linux it is just DVCS, while on Windows it is also provides as dependency bash eco system, that is enough to write cross platform scripts for Linux, Unix, Windows, Mac is etc. CMake is already perfect tool, it can be used to install packages into you OS in cross-platform way. Pak-c-mak is simply set of script that provide single command line interface same for any platform, eliminating usage difference that exists for CLI and scripting on different platforms.
 
 # Features
 
@@ -27,6 +29,7 @@ It still possible use deb manager for Ubuntu or vcpkg for Windows, but in this c
 - **Package manager** for C++ modules and dependencies between them.
 - **Local build cache repository** to install built target, decoupled from OS binaries.
 - **pak-c-mak repositories**: Git based repository to keep packages and profiles.
+- **pak-c-mak package** - reference to C++ CMake based module's source codes and script to build it and install into local binary repository for future use.
 - **Profiles** to define different preset for built configuration.
 - Two ways of use: 
   - **Distribution mode**: Automated build from remote git repositories. C++ modules are download from remote git repositories.

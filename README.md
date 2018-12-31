@@ -10,7 +10,7 @@ For example there is cross-platform C++ multi-module application that re-uses C+
 
 - To re-use libraries it is just necessary to add pak-c-mak repositories as url into local configuration, so all packages of that repository became available. And then use pak-c-mak CLI to build and install pak-c-mak packages as CMake C++ libraries modules into cross-platform multi-module C++ application.
 
-- **pak-c-mak** effectively can work with multiple pak-c-mak repositories, if another pak-c-mak repository with necessary C++ libraries already exist, using pak-c-mak it is possible to add as many references to external pak-c-mak repositories as many as needed.
+- **pak-c-mak** effectively can work with multiple pak-c-mak repositories, if another pak-c-mak repository with necessary C++ libraries already exist, using pak-c-mak it is possible to add as many references to external pak-c-mak repositories as needed.
 
 - **pak-c-mak** have special mode for local development, where packages will be found in local copy first. This approach is useful to test latest local changes before publishing them into remote.
 

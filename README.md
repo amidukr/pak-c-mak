@@ -1,8 +1,10 @@
 # Overview
 
-**pak-c-mak** is cross-platform tools used as distributed package manager for C++ libraries. As a prototype for this tool maven local and maven central repository was used. This tool re-uses git to host pak-c-mak package repositories and CMake as C++ build tool to build C++ modules: libraries and applications.
+**pak-c-mak** is cross-platform tools used as distributed package manager for C++ libraries. As a prototype for this tool maven local and maven central repository was used.
 
-For example there is cross-platform C++ multi-module application that re-uses C++ libraries implemented as CMake modules. 
+## How it works
+
+Asdume there is cross-platform C++ multi-module application that re-uses C++ libraries that are implemented as CMake modules. 
 
 - To share that C++ libraries for future re-use, it is necessary to create git repository that will be used as pak-c-mak package repository. Then create and put a pak-c-mak package into pak-c-mak package repository for every required C++ library and module. Each pak-c-mak package consists of URL to source code of C++ library, and required script to build and install this library as dependency to application.
 

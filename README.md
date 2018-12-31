@@ -6,7 +6,7 @@ For example there is cross-platform C++ multi-module application that re-uses C+
 
 Sharing repository of libraries is as simple as hosting git. For open source GitHub can be used to publish repository of libraries. For proprietary libraries corporate secure git server with locked external access can be used.
 
-To re-use libraries it is just necessary to URLs to pak-c-mak repositories as many as needed. And use pak-c-mak CLI to build and install pak-c-mak packages as CMake C++ libraries modules into cross-platform multi-module C++ application.
+To re-use libraries it is just necessary to add pak-c-mak repositories as url into local configuration, so all packages of that repository became available. And then use pak-c-mak CLI to build and install pak-c-mak packages as CMake C++ libraries modules into cross-platform multi-module C++ application.
 
 
 - **pak-c-mak** effectively can work with multiple repositories, if another repository for required module already exist, using pak-c-mak it is possible to add references to external repositories as many as needed.

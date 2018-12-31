@@ -6,11 +6,11 @@
 
 Asdume there is cross-platform C++ multi-module application that re-uses C++ libraries that are implemented as CMake modules. 
 
-- To share that C++ libraries for future re-use, it is necessary to create git repository that will be used as pak-c-mak package repository. Then create and put a pak-c-mak package into pak-c-mak package repository for every required C++ library and module. Each pak-c-mak package consists of URL to source code of C++ library, and required script to build and install this library as dependency to application.
+- To share that C++ libraries for future re-use, it is necessary to create repository of libraries, particulary pak-c-mak repository is a git repository, wich contains pak-c-mak packages for every required library, while each pak-c-mak package consists of URL to source code of C++ library, and required script to build and install that library as dependency to application.
 
-- Sharing repository of libraries is as simple as hosting git. For open source GitHub can be used to publish repository of libraries. For proprietary libraries corporate secure git server with locked external access can be used.
+- Sharing repository of libraries is as simple as hosting git. For open source libraries: GitHub can be used to publish repository of libraries. For proprietary libraries: corporate secure git server with locked external access can be used.
 
-- To re-use libraries it is just necessary to add pak-c-mak repositories as url into local configuration, so all packages of that repository became available. And then use pak-c-mak CLI to build and install pak-c-mak packages as CMake C++ libraries modules into cross-platform multi-module C++ application.
+- To re-use libraries it is just necessary to add pak-c-mak repositories as url into local pak-c-mak configuration, so all packages of that repository became available. And then use pak-c-mak CLI to build and install pak-c-mak packages as CMake C++ libraries modules into cross-platform multi-module C++ application.
 
 - **pak-c-mak** effectively can work with multiple pak-c-mak repositories, if another pak-c-mak repository with necessary C++ libraries already exist, using pak-c-mak it is possible to add as many references to external pak-c-mak repositories as needed.
 

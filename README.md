@@ -1,6 +1,6 @@
 # Overview
 
-**pak-c-mak** is cross-platform tools used as distributed package manager for C++ libraries. As a prototype for this tool maven local and maven central repository was used.
+**pak-c-mak** is cross-platform tools used as distributed package manager for C++ libraries. As a prototype for this tool maven local and maven central repository is used.
 
 ## How it works
 

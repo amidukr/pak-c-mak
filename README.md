@@ -1,10 +1,10 @@
 # Overview
 
-**pak-c-mak** is cross-platform tools used as a local package manager for CMake based modules. As a prototype for this tool local maven repository was used. This tool follows git distributed approach, and the concept is to have set of distributed pak-c-mak repositories with many-many CMake module that can be used together.
+**pak-c-mak** is cross-platform tools used as a local package manager for CMake based modules. As a prototype for this tool maven repository was used. This tool follows git distributed approach, and the concept is to have set of distributed pak-c-mak repositories with multiple CMake modules that can be used as dependencies for project build.
 
-For example your application is buildup from many-many modules, and for this reason you can create your own git repository to keep package scripts to build application, which you can host on GitHub or use your corporate secured git repo without external access, and when you will need to share buildable environment for you sources, it will be just necessary to add pak-c-mak repo to pak-c-mak build cache and voila everything ready to go.
-- **pak-c-mak** effectively can work with multiple repositories, if you've found that somebody already created repository for you, you can just add as many repos as you want.
-- **pak-c-mak** have special mode for local development, where packages will be found in your local copy first, and only after that if local copy not found will go and download from the remote git repository.
+For example application is buildup from multiple modules, and for this reason needs to create package repository to keep package scripts to build application with dependencies to other modules. Using pak-c-mak it possible to automate build process with dependency management. Pak-c-mak package repository can be simply hosted as another git project, so to publish  Open Source modules GitHub can be used. Hosting proprietary repository is as simple as hosting corporate secured git repo without external access. And to share buildable environment for sources, it will be just necessary to add pak-c-mak repo to pak-c-mak build cache and voila everything ready to go.
+- **pak-c-mak** effectively can work with multiple repositories, if another repository for required module already exist, using pak-c-mak it is possible to add references to external repositories as many as needed.
+- **pak-c-mak** have special mode for local development, where packages will be found in local copy first. This approach is useful to test latest local changes before publishing them into remote.
  
 ![alt text](readme/pak-c-mak-overview.png "Logo Title Text 1")
 

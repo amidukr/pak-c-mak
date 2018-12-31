@@ -12,7 +12,7 @@ For example application is buildup from multiple modules, and for this reason ne
 
 The intention to create this tool is based on research
 
-The intention for this tool is to bring best practices to manage single package repository for cross-platform projects in C++. For such languages like Java, Rust, Python this task already solved. C++ language has longer history than these, and different platform built on C++ evolved independently, as a result there is no single cross-platform package managers, instead around 20 of them which are OS dependent. So the intention for this project is to challenge this  situatiin.
+The intention for this tool is to bring best practices to manage single package repository for cross-platform projects in C++. For such languages like Java, Rust, Python this task already solved. C++ language has longer history, and platform built on C++ evolved independently, as a result there is no single cross-platform package managers, instead 20 OS dependent exists. The intention for this project is to challenge this  situation.
 
 In **Java** enterprise worlds, where web application could be very complex and contains hundreds and sometime up to thousand of transitive dependencies. Java binary executable format already made in that way, so different module's binaries already compatible even if they compiled for different platforms. So it makes possible for Java, to keep central repository for binary artifacts compatible with any platform like Maven central repository. Using java eco system it is easily possible to build an application from single command on the system where only JDK is installed. Commonly adopted build tools Maven and Gradle with support of maven repositories do it all for you. 
 

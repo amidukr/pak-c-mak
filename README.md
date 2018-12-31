@@ -4,7 +4,7 @@
 
 ## How it works
 
-Assume there is cross-platform C++ multi-module application that re-uses C++ libraries that are implemented as CMake modules. 
+Assume that it is required to create a cross-platform C++ multi-module application that re-uses C++ libraries as modules. 
 
 - To share that C++ libraries for future re-use, it is necessary to create repository of libraries, particulary pak-c-mak repository is a git repository, wich contains pak-c-mak packages for every required C++ library, while each pak-c-mak package consists of URL to source code of C++ library, and required script to build and install that library as dependency to application.
 

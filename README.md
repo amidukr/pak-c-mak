@@ -28,6 +28,7 @@ As example: googletest, boost and other recommends just to download library sour
 The cross-platform central binary repository for Cross-Platform C++ will never happen, however based on **Rust** experience, which has same limitation like C++, it is efficient to manage dependencies to other modules as to buildable source code.
 
 **pak-c-mak** is simple cross-platform distributed package manager based on **Git** and **CMake**.
+
 **Git** is distributed version control system.
 - On Linux it is just DVCS.
 - On Windows it is also provides as dependency bash eco system, that is enough to write cross platform scripts for Linux, Unix, Windows, Mac is etc. 

@@ -8,7 +8,7 @@
 
 - To share C++ libraries for future re-use, it is necessary to create repository of libraries, particulary pak-c-mak repository is a git repository, wich contains pak-c-mak packages for every required C++ library, while each pak-c-mak package consists of URL to source code of C++ library, and required script to build and install that library as dependency to application.
 
-- Sharing repository of libraries is as simple as hosting git. For open source libraries: GitHub can be used to publish repository of libraries. For proprietary libraries: corporate secure git server with locked external access can be used.
+- Sharing repository of libraries is as simple as hosting git. For open source libraries: GitHub can be used to publish repository of libraries. For proprietary libraries: corporate secure git server locked to external access can be used.
 
 - To re-use libraries it is just necessary to add pak-c-mak repositories as url into local pak-c-mak configuration, so all packages of that repository became available. And then use pak-c-mak CLI to build and install pak-c-mak packages as CMake C++ libraries modules into cross-platform multi-module C++ application.
 

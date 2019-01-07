@@ -4,9 +4,9 @@
 
 ## How it works
 
-**pak-c-mak** is used to create C++ library repositories, share C++ libraries and reuse that C++ libraries for cross-platform C++ multi-module applications.
+**pak-c-mak** is used to create C++ library repositories, share C++ libraries and reuse C++ libraries for cross-platform C++ multi-module applications.
 
-- To share that C++ libraries for future re-use, it is necessary to create repository of libraries, particulary pak-c-mak repository is a git repository, wich contains pak-c-mak packages for every required C++ library, while each pak-c-mak package consists of URL to source code of C++ library, and required script to build and install that library as dependency to application.
+- To share t++ libraries for future re-use, it is necessary to create repository of libraries, particulary pak-c-mak repository is a git repository, wich contains pak-c-mak packages for every required C++ library, while each pak-c-mak package consists of URL to source code of C++ library, and required script to build and install that library as dependency to application.
 
 - Sharing repository of libraries is as simple as hosting git. For open source libraries: GitHub can be used to publish repository of libraries. For proprietary libraries: corporate secure git server with locked external access can be used.
 
